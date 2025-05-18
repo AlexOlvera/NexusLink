@@ -1,0 +1,2 @@
+C:\Users\aolve\source\repos\NexusLink\NexusLink\obj\Debug\NexusLink.csproj.AssemblyReference.cache
+C:\Users\aolve\source\repos\NexusLink\NexusLink\obj\Debug\NexusLink.csproj.CoreCompileInputs.cache

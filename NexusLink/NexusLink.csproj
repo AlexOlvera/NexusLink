@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D6F27AE3-94AB-42E9-B796-847B17C9603C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NexusLink</RootNamespace>
+    <AssemblyName>NexusLink</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.1.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AOP\Aspects\AuthorizationAspect.cs" />
+    <Compile Include="AOP\Aspects\DatabaseRouterAspect.cs" />
+    <Compile Include="AOP\Aspects\TransactionAspect.cs" />
+    <Compile Include="AOP\Attributes\FunctionAttribute.cs" />
+    <Compile Include="AOP\Interception\IInterceptor.cs" />
+    <Compile Include="AOP\PerformanceAspect.cs" />
+    <Compile Include="Attributes\BehaviorAttributes\AutoIncrementAttribute.cs" />
+    <Compile Include="Attributes\BehaviorAttributes\ComputedAttribute.cs" />
+    <Compile Include="Attributes\BehaviorAttributes\DefaultValueAttribute.cs" />
+    <Compile Include="Attributes\BehaviorAttributes\IgnoreAttribute.cs" />
+    <Compile Include="Attributes\ColumnAttribute.cs" />
+    <Compile Include="Attributes\KeyAttributes\CompositeKeyAttribute.cs" />
+    <Compile Include="Attributes\KeyAttributes\ForeignKeyAttribute.cs" />
+    <Compile Include="Attributes\KeyAttributes\PrimaryKeyAttribute.cs" />
+    <Compile Include="Attributes\KeyAttributes\UniqueKeyAttribute.cs" />
+    <Compile Include="Attributes\RelationshipAttributes\JoinTableAttribute.cs" />
+    <Compile Include="Attributes\RelationshipAttributes\ManyToManyAttribute.cs" />
+    <Compile Include="Attributes\RelationshipAttributes\ManyToOneAttribute.cs" />
+    <Compile Include="Attributes\RelationshipAttributes\OneToManyAttribute.cs" />
+    <Compile Include="Attributes\TableAttribute.cs" />
+    <Compile Include="Attributes\ValidationAttributes\CustomValidationAttribute.cs" />
+    <Compile Include="Attributes\ValidationAttributes\RangeAttribute.cs" />
+    <Compile Include="Attributes\ValidationAttributes\RegexAttribute.cs" />
+    <Compile Include="Attributes\ValidationAttributes\RequiredAttribute.cs" />
+    <Compile Include="Attributes\ValidationAttributes\StringLengthAttribute.cs" />
+    <Compile Include="BulkOperationManager.cs" />
+    <Compile Include="CompiledQueryManager.cs" />
+    <Compile Include="ConnectionPoolManager.cs" />
+    <Compile Include="Context\AsyncLocalContext.cs" />
+    <Compile Include="Context\ThreadContextManager.cs" />
+    <Compile Include="Core\Connection\ConnectionMonitor.cs" />
+    <Compile Include="Core\Connection\ConnectionResolver.cs" />
+    <Compile Include="Core\Connection\DatabaseSelector.cs" />
+    <Compile Include="Core\Connection\MultiTenantConnection.cs" />
+    <Compile Include="Core\Transactions\IsolationLevelManager.cs" />
+    <Compile Include="Core\Transactions\TransactionManager.cs" />
+    <Compile Include="Core\Transactions\UnitOfWork.cs" />
+    <Compile Include="Data\Commands\BulkCommand.cs" />
+    <Compile Include="Data\Commands\CommandExecutor.cs" />
+    <Compile Include="Data\Commands\ScalarFunction.cs" />
+    <Compile Include="Data\Mapping\ColumnInfo.cs" />
+    <Compile Include="Data\Mapping\EntityFrameworkBridge.cs" />
+    <Compile Include="Data\Mapping\EntityMapper.cs" />
+    <Compile Include="Data\Mapping\MappingConvention.cs" />
+    <Compile Include="Data\Mapping\RelationshipMap.cs" />
+    <Compile Include="Data\Mapping\SchemaManager.cs" />
+    <Compile Include="Data\Mapping\TableInfo.cs" />
+    <Compile Include="Data\Parameters\ParameterCollection.cs" />
+    <Compile Include="Data\Parameters\ParameterValidator.cs" />
+    <Compile Include="Data\Parameters\SqlParameterFactory.cs" />
+    <Compile Include="Data\Parameters\TypedParameter.cs" />
+    <Compile Include="Data\Queries\AsyncQueryExecutor.cs" />
+    <Compile Include="Data\Queries\QueryCache.cs" />
+    <Compile Include="Data\Queries\DynamicQuery.cs" />
+    <Compile Include="DependencyInjection\ModuleRegistration.cs" />
+    <Compile Include="Dynamic\DynamicProxy\ClassProxyBuilder.cs" />
+    <Compile Include="Dynamic\DynamicProxy\InterfaceProxyBuilder.cs" />
+    <Compile Include="Dynamic\DynamicProxy\ProxyCache.cs" />
+    <Compile Include="Dynamic\DynamicProxy\ProxyGenerator.cs" />
+    <Compile Include="EntityFramework\DbContextExtensions.cs" />
+    <Compile Include="EntityFramework\ModelBuilder\AttributeModelBuilder.cs" />
+    <Compile Include="EntityFramework\ModelBuilder\FluentModelBuilder.cs" />
+    <Compile Include="Extensions\AsyncExtensions\AsyncCommandExtensions.cs" />
+    <Compile Include="Extensions\AsyncExtensions\AsyncQueryExtensions.cs" />
+    <Compile Include="Extensions\AsyncExtensions\TaskExtensions.cs" />
+    <Compile Include="Extensions\DataExtensions\DataRowExtensions.cs" />
+    <Compile Include="Extensions\DataExtensions\DataSetExtensions.cs" />
+    <Compile Include="Extensions\DataExtensions\DataTableExtensions.cs" />
+    <Compile Include="Extensions\ObjectExtensions\DynamicExtensions.cs" />
+    <Compile Include="Extensions\ObjectExtensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\ObjectExtensions\ReflectionExtensions.cs" />
+    <Compile Include="Extensions\ObjectExtensions\StringExtensions.cs" />
+    <Compile Include="Extensions\SqlExtensions\CommandExtensions.cs" />
+    <Compile Include="Extensions\SqlExtensions\ConnectionExtensions.cs" />
+    <Compile Include="Extensions\SqlExtensions\TransactionExtensions.cs" />
+    <Compile Include="Logging\FileLogger.cs" />
+    <Compile Include="Logging\NexusTraceAdapter.cs" />
+    <Compile Include="Logging\TraceLogger.cs" />
+    <Compile Include="MultiDbRepository2.cs" />
+    <Compile Include="MVC\ActionFilters\CacheFilter.cs" />
+    <Compile Include="MVC\ActionFilters\TransactionFilter.cs" />
+    <Compile Include="MVC\ModelBinder\EntityModelBinderProvider.cs" />
+    <Compile Include="MVC\ViewHelpers\DataTableHelper.cs" />
+    <Compile Include="MVC\ViewHelpers\GridHelper.cs" />
+    <Compile Include="Repository\AsyncRepository.cs" />
+    <Compile Include="Attributes\RelationshipAttributes\NavigationPropertyAttribute.cs" />
+    <Compile Include="Dynamic\Emit\AssemblyGenerator.cs" />
+    <Compile Include="IAsyncRepository.cs" />
+    <Compile Include="AOP\Attributes\CacheResultAttribute.cs" />
+    <Compile Include="AOP\Aspects\CachingAspect.cs" />
+    <Compile Include="AOP\Attributes\CommandAttribute.cs" />
+    <Compile Include="Data\Commands\CommandBuilder.cs" />
+    <Compile Include="Core\Connection\ConnectionFactory.cs" />
+    <Compile Include="Core\Connection\ConnectionPool.cs" />
+    <Compile Include="Logging\ConsoleLogger.cs" />
+    <Compile Include="Data\MultiDb\CrossDbQueryBuilder.cs" />
+    <Compile Include="Repository\CrudRepository.cs" />
+    <Compile Include="AOP\Attributes\DatabaseAttribute.cs" />
+    <Compile Include="Context\DatabaseContext.cs" />
+    <Compile Include="Data\MultiDb\DatabaseRouter.cs" />
+    <Compile Include="Context\DatabaseScope.cs" />
+    <Compile Include="NexusLinkDbContext.cs" />
+    <Compile Include="Repository\GenericRepository.cs" />
+    <Compile Include="Repository\MultiDbRepository.cs" />
+    <Compile Include="Serialization\BinaryConverter.cs" />
+    <Compile Include="Serialization\DataConverter.cs" />
+    <Compile Include="Extensions\DataExtensions\DataReaderExtensions.cs" />
+    <Compile Include="Data\MultiDb\DbContextManager.cs" />
+    <Compile Include="Data\MultiDb\DbProviderFactory.cs" />
+    <Compile Include="Dynamic\Expando\DynamicPropertyBag.cs" />
+    <Compile Include="AOP\Interception\DynamicProxyGenerator.cs" />
+    <Compile Include="Serialization\JsonConverter.cs" />
+    <Compile Include="Serialization\XmlConverter.cs" />
+    <Compile Include="SqlDataReaderExtensions.cs" />
+    <Compile Include="MVC\ModelBinder\EntityModelBinder.cs" />
+    <Compile Include="Dynamic\Expando\ExpandoExtensions.cs" />
+    <Compile Include="Dynamic\Expando\ExpandoObject.cs" />
+    <Compile Include="Serialization\FormatProviders\CustomFormatProvider.cs" />
+    <Compile Include="Repository\AdoNetRepository.cs" />
+    <Compile Include="Logging\ILogger.cs" />
+    <Compile Include="AOP\Attributes\InterceptAttribute.cs" />
+    <Compile Include="AOP\Interception\InterceptionContext.cs" />
+    <Compile Include="Dynamic\Emit\InterfaceImplementer.cs" />
+    <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Logging\LoggerFactory.cs" />
+    <Compile Include="AOP\Aspects\LoggingAspect.cs" />
+    <Compile Include="Dynamic\Emit\MethodEmitter.cs" />
+    <Compile Include="AOP\Interception\MethodInterceptor.cs" />
+    <Compile Include="AOP\Interception\MethodInvocation.cs" />
+    <Compile Include="MultiDbRepository.cs" />
+    <Compile Include="EntityFramework\NexusLinkDbContext.cs" />
+    <Compile Include="EntityFramework\NexusLinkEntityConfigurator.cs" />
+    <Compile Include="NexusLinkModelBinderProvider.cs" />
+    <Compile Include="DependencyInjection\NexusLinkServiceCollectionExtensions.cs" />
+    <Compile Include="ObjectExtensions.cs" />
+    <Compile Include="Dynamic\Emit\PropertyEmitter.cs" />
+    <Compile Include="AOP\Interception\ProxyFactory.cs" />
+    <Compile Include="AOP\Attributes\QueryAttribute.cs" />
+    <Compile Include="Data\Queries\QueryBuilder.cs" />
+    <Compile Include="Data\Queries\QueryResult.cs" />
+    <Compile Include="Repository\RepositoryBase.cs" />
+    <Compile Include="DependencyInjection\RepositoryServiceExtensions.cs" />
+    <Compile Include="AOP\Aspects\RetryAspect.cs" />
+    <Compile Include="Core\Connection\RetryPolicy.cs" />
+    <Compile Include="Core\Connection\SafeConnection.cs" />
+    <Compile Include="SerializationManager.cs" />
+    <Compile Include="Core\Configuration\SettingsProvider.cs" />
+    <Compile Include="Core\Configuration\ConfigManager.cs" />
+    <Compile Include="Core\Configuration\ConnectionSettings.cs" />
+    <Compile Include="Core\Configuration\MultiDatabaseConfig.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serialization\FormatProviders\DateTimeFormatProvider.cs" />
+    <Compile Include="Serialization\FormatProviders\NumberFormatProvider.cs" />
+    <Compile Include="SQLCommandAttribute.cs" />
+    <Compile Include="Utilities\Ensure.cs" />
+    <Compile Include="Utilities\Guard.cs" />
+    <Compile Include="Utilities\Retry.cs" />
+    <Compile Include="Utilities\SQLHelper.cs" />
+    <Compile Include="Utilities\SqlResources\ResourceManager.cs" />
+    <Compile Include="Utilities\SqlResources\SchemaManager.cs" />
+    <Compile Include="Utilities\SqlResources\ScriptExecutor.cs" />
+    <Compile Include="Utilities\SqlResources\ScriptLoader.cs" />
+    <Compile Include="Utilities\SqlSecurity\SqlSanitizer.cs" />
+    <Compile Include="Data\Commands\StoredProcedure.cs" />
+    <Compile Include="AOP\Attributes\StoredProcedureAttribute.cs" />
+    <Compile Include="AOP\Attributes\TransactionalAttribute.cs" />
+    <Compile Include="TransactionAttribute.cs" />
+    <Compile Include="Core\Transactions\TransactionScope.cs" />
+    <Compile Include="Dynamic\Emit\TypeBuilder.cs" />
+    <Compile Include="Utilities\SqlSecurity\InjectionDetector.cs" />
+    <Compile Include="Utilities\SqlSecurity\ParameterGuard.cs" />
+    <Compile Include="Utilities\TypeConverter.cs" />
+    <Compile Include="Dynamic\Expando\TypedExpando.cs" />
+    <Compile Include="AOP\Aspects\ValidationAspect.cs" />
+    <Compile Include="AOP\Attributes\ValidationAttributes.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

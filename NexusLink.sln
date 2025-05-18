@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.36107.64
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NexusLink", "NexusLink\NexusLink.csproj", "{D6F27AE3-94AB-42E9-B796-847B17C9603C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D6F27AE3-94AB-42E9-B796-847B17C9603C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6F27AE3-94AB-42E9-B796-847B17C9603C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6F27AE3-94AB-42E9-B796-847B17C9603C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6F27AE3-94AB-42E9-B796-847B17C9603C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {46AF85F6-E22C-4D16-BA51-4B863654C3E8}
+	EndGlobalSection
+EndGlobal
